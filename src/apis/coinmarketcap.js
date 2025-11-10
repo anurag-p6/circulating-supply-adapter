@@ -71,7 +71,7 @@ async function getTopCryptosFromCoinMarketCap() {
       symbol: crypto.symbol,
       price_usd: crypto.quote?.USD?.price || null,
       market_cap_usd: crypto.quote?.USD?.market_cap || null,
-      circulating_supply: crypto.circulating_supply || null
+      circulating_supply: crypto.circulating_supply ? Math.floor(crypto.circulating_supply) : null
     }));
   } catch (error) {
     throw new Error(`CoinMarketCap Top 100 API Error: ${error.message}`);

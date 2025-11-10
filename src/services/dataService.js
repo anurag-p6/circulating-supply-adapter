@@ -144,11 +144,7 @@ function mergeAndProcessData(cmcData, cgData) {
     .sort((a, b) => a.rank - b.rank)
     .slice(0, 100) // Limit to top 100
     .map(crypto => ({
-      rank: crypto.rank,
-      name: crypto.name,
       symbol: crypto.symbol,
-      price_usd: crypto.price_usd,
-      market_cap_usd: crypto.market_cap_usd,
       circulating_supply_median: crypto.circulating_supply_median
     }));
 

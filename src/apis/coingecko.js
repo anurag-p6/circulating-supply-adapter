@@ -80,7 +80,7 @@ async function getTopCryptosFromCoinGecko() {
       symbol: crypto.symbol?.toUpperCase() || null,
       price_usd: crypto.current_price || null,
       market_cap_usd: crypto.market_cap || null,
-      circulating_supply: crypto.circulating_supply || null
+      circulating_supply: crypto.circulating_supply ? Math.floor(crypto.circulating_supply) : null
     }));
   } catch (error) {
     throw new Error(`CoinGecko Top 100 API Error: ${error.message}`);
