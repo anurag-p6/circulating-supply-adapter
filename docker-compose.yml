@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  price-adapter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - COINMARKETCAP_API_KEY=${COINMARKETCAP_API_KEY}
+      - COINGECKO_API_KEY=${COINGECKO_API_KEY}
+    restart: unless-stopped
+    container_name: price-adapter-app
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s

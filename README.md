@@ -2,6 +2,36 @@
 
 A production-ready Express.js application that fetches and aggregates cryptocurrency data from both **CoinMarketCap** and **CoinGecko** APIs. The application compares circulating supply values between the two sources, computes their median (average for two values), and exposes a cached API endpoint for the top 100 cryptocurrencies by market cap.
 
+## Docker Quick Start
+
+### Option 1: Run from GHCR (Already Deployed)
+
+```bash
+docker run -p 3000:3000 \
+  -e COINMARKETCAP_API_KEY=your_api_key \
+  -e COINGECKO_API_KEY=your_api_key \
+  ghcr.io/anurag-p6/price-adapter:latest
+```
+
+### Option 2: Run Locally with docker-compose
+
+1. Create `.env` file:
+```bash
+COINMARKETCAP_API_KEY=your_api_key
+COINGECKO_API_KEY=your_api_key
+```
+
+2. Run:
+```bash
+docker-compose up -d
+```
+
+**Check status**: `http://localhost:3000/health`
+
+**Get data**: `http://localhost:3000/api/top100`
+
+---
+
 ## Features
 
 - **Dual-API Integration**: Fetches data from both CoinMarketCap and CoinGecko for redundancy

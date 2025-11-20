@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log
+.env.example
+.git
+.gitignore
+.DS_Store
+.env
+README.md
+ARCHITECTURE.md
+IMPLEMENTATION_CHECKLIST.md
+IMPLEMENTATION_SUMMARY.md
+PROJECT_COMPLETION_REPORT.md
+QUICK_REFERENCE.txt
+QUICK_START.md
+.claude
+Procfile
