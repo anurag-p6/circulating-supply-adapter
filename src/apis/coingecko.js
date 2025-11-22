@@ -59,13 +59,9 @@ async function getTopCryptosFromCoinGecko() {
       per_page: 100,
       page: 1,
       sparkline: false,
-      locale: 'en'
+      locale: 'en',
+      precision: 'full'
     };
-
-    // Add API key if available (for pro endpoints)
-    if (COINGECKO_API_KEY) {
-      params.x_cg_pro_api_key = COINGECKO_API_KEY;
-    }
 
     const response = await axios.get(`${COINGECKO_API_URL}/coins/markets`, {
       params,

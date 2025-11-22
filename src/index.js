@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const supplyRoutes = require('./routes/supply');
 const apiRoutes = require('./routes/api');
+require('./services/supplyUpdater.service.js'); // Ensure the supply updater service is imported and runs
 
 const app = express();
 const PORT = process.env.PORT || 3000;
