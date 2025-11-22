@@ -1,7 +1,7 @@
 const { Wallet, Contract, JsonRpcProvider } = require('ethers');
 require('dotenv/config');
 
-const provider = new JsonRpcProvider(process.env.ARBITRUM_SEPOLIA_RPC);
+const provider = new JsonRpcProvider(process.env.ARBITRUM_MAINNET_RPC);
 const wallet = new Wallet(process.env.PRIVATE_KEY, provider);
 
 const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
@@ -12,8 +12,8 @@ const ABI = [
 
 const contract = new Contract(CONTRACT_ADDRESS, ABI, wallet);
 
-// This is your live API endpoint (you already have it running)
-const API_URL = "http://localhost:3000/api/top100"; // ← your existing Express route
+// This is live API endpoint (already have it running)
+const API_URL = "https://circulating-supply-adapter.onrender.com/api/top100"; // existing Express route
 
 async function fetchLatestSupplies() {
   const response = await fetch(API_URL);
